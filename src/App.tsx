@@ -1,26 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Container, Typography } from '@mui/material';
+import TodoApp from './components/TodoApp/TodoApp';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App: React.FC = () => {
+    return (
+        <Container maxWidth="sm" style={{ textAlign: 'center', paddingTop: '20px' }}>
+            <Typography variant="h3" gutterBottom>
+                Todo Application
+            </Typography>
+            <TodoApp />
+        </Container>
+    );
+};
 
 export default App;
