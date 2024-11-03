@@ -1,26 +1,29 @@
-import React from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import TodoItem from './TodoItem';
 
-export default {
+const meta: Meta<typeof TodoItem> = {
     title: 'Components/TodoItem',
     component: TodoItem,
-} as Meta;
-
-const Template: StoryFn<typeof TodoItem> = (args) => <TodoItem {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-    text: 'Example Task',
-    completed: false,
-    onToggle: () => {},
-    onDelete: () => {},
+    argTypes: {
+        text: { control: 'text' },
+        completed: { control: 'boolean' },
+    },
 };
 
-export const Completed = Template.bind({});
-Completed.args = {
-    text: 'Completed Task',
-    completed: true,
-    onToggle: () => {},
-    onDelete: () => {},
+export default meta;
+
+type Story = StoryObj<typeof TodoItem>;
+
+export const Default: Story = {
+    args: {
+        text: 'Sample Todo',
+        completed: false,
+    },
+};
+
+export const Completed: Story = {
+    args: {
+        text: 'Completed Todo',
+        completed: true,
+    },
 };
